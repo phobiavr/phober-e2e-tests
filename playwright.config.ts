@@ -17,7 +17,7 @@ module.exports = defineConfig({
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         trace: 'on-first-retry',
         /* Need to run in a real browser on the local machine, not in the background */
-        headless: false,
+        headless: true,
         screenshot: 'on',
         video: 'on',
     },
