@@ -1,5 +1,21 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 import {login} from "../helpers/auth";
+import {resetDatabase} from "../helpers/test-setup";
+
+test.beforeEach(async () => {
+    await resetDatabase();
+});
+
+export async function verifyUserExists(page: Page, email: string) {
+    await page.goto('/adminpanel/resources/users');
+
+    await page.waitForSelector('input[placeholder="Search"]');
+    await page.fill('input[placeholder="Search"]', email);
+    await page.press('input[placeholder="Search"]', 'Enter');
+
+    const userRow = page.locator(`text=${email}`);
+    await expect(userRow).toBeVisible();
+}
 
 test('Create new user', async ({ page }) => {
     const timestamp = Date.now();
@@ -24,4 +40,6 @@ test('Create new user', async ({ page }) => {
 
     await expect(page).toHaveURL(/.*\/users/);
     await expect(page.getByText('The user was created')).toBeVisible();
+
+    await verifyUserExists(page, email);
 });
