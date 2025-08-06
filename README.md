@@ -7,7 +7,6 @@ These tests perform tasks like user creation, deletion, login/logout flows, and 
 - 🟢 [Node.js](https://nodejs.org/): Running tests and scripts
 - 🧑‍💻 [TypeScript](https://www.typescriptlang.org/): Type safety for code
 - 📦 [npm](https://www.npmjs.com/): Package management
-- 🔄 [Git](https://git-scm.com/): Version control
 
 ## 📦 Setup Instructions
 
@@ -30,9 +29,6 @@ These tests perform tasks like user creation, deletion, login/logout flows, and 
    npx playwright install
    ```
 
-4. **Configure environment variables**  
-   If your tests require environment variables, create a `.env` file in the root directory and add the necessary variables.
-
 ## 🚀 Running Tests
 - To execute all tests:
   ```bash
@@ -42,11 +38,7 @@ These tests perform tasks like user creation, deletion, login/logout flows, and 
   ```bash
   npx playwright test tests/login.spec.ts
   ```
-- To view the test report:
-  ```bash
-  npx playwright show-report
-  ```
-
+  
 ## 📊 View Test Report
 **Open Playwright Test Report**
 
@@ -127,6 +119,3 @@ phober-e2e-tests/
 │   │   ├── delete-user.spec.ts
 │   │   └── filter-users.spec.ts
 ```
-
-## 🙋‍♀️ Contributing
-We welcome contributions! Please open issues or submit pull requests for improvements or bug fixes.
