@@ -1,7 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
 
 module.exports = defineConfig({
-    workers: process.env.CI ? 1 : undefined,
+    /* Maximum time one test can run for. */
+    // workers: process.env.CI ? 1 : undefined,
+    workers: 1,
     /* Run tests in files in parallel */
     // fullyParallel: true,
     /* Fail the build on CI if you accidentally left test.only in the source code. */
