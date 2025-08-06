@@ -2,6 +2,12 @@
 
 A Playwright-based end-to-end testing suite for the Phober Admin Panel.  
 These tests perform tasks like user creation, deletion, login/logout flows, and employee management using real browser automation.
+## 🛠️ Tools Used
+- 📊 [Playwright Test](https://playwright.dev/docs/test-intro): Test runner and reporter
+- 🟢 [Node.js](https://nodejs.org/): Running tests and scripts
+- 🧑‍💻 [TypeScript](https://www.typescriptlang.org/): Type safety for code
+- 📦 [npm](https://www.npmjs.com/): Package management
+- 🔄 [Git](https://git-scm.com/): Version control
 
 ## 📦 Setup Instructions
 
@@ -28,47 +34,58 @@ These tests perform tasks like user creation, deletion, login/logout flows, and 
    If your tests require environment variables, create a `.env` file in the root directory and add the necessary variables.
 
 ## 🚀 Running Tests
-
-To execute all tests, use:
-```bash
+- To execute all tests:
+  ```bash
   npx playwright test
-```
-
-To run a specific test file:
-```bash
+  ```
+- To run a specific test file:
+  ```bash
   npx playwright test tests/login.spec.ts
-```
+  ```
+- To view the test report:
+  ```bash
+  npx playwright show-report
+  ```
 
 ## 📊 View Test Report
 **Open Playwright Test Report**
 
-After running tests, view the report with:
-```bash
-  npx playwright show-report
-```
+- After running tests, view the report with:
+   ```bash
+   npx playwright show-report
+   ```
 
-Generate and open the report after test run:
-```bash
-  npx playwright test
-  npx playwright show-report
-```
+- Generate and open the report after test run:
+   ```bash
+   npx playwright test
+   npx playwright show-report
+   ```
 
-To run tests without opening a browser window, use:
-```bash
-  npx playwright test --headed
-```
+- To run tests without opening a browser window, use:
+   ```bash
+   npx playwright test --headed
+   ```
 
-To run tests in a specific browser, use the `--browser` flag:
-```bash
-  npx playwright test --browser=chromium
-```
-Supported browsers: `chromium`, `firefox`, `webkit`.
+- To run tests in a specific browser, use the `--browser` flag:
+   ```bash
+   npx playwright test --browser=chromium
+   ```
+   Supported browsers: `chromium`, `firefox`, `webkit`.
 
-
-## 🧪 Test Structure
+## 🧪 Test Structure & Details
 - All tests are located in the `tests/` folder.
 - Common setup (like DB reset) can be added to `test.beforeEach()` hooks.
 - Utilities like user creation or database resets are in the `utils/` directory.
+
+**Test Files:**
+- **login.spec.ts**: Tests UI login functionality and verifies successful login.
+- **logout.spec.ts**: Tests UI logout functionality and verifies user is logged out.
+- **users/create-user.spec.ts**: Creates a new user and verifies the user appears in the user list.
+- **users/delete-user.spec.ts**: Deletes a specific user and verifies removal from the user list.
+- **users/filter-users.spec.ts**: Filters users by criteria and verifies correct results.
+- **helpers/auth.ts**: Contains authentication helper functions for tests.
+- **helpers/test-setup.ts**: Contains setup utilities, e.g., database reset.
+
 
 | Test Feature            | Description                                          |
 | ----------------------- | ---------------------------------------------------- |
